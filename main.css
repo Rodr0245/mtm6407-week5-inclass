@@ -1,0 +1,85 @@
+/* Compass Styles */
+
+.compass-container {
+	display: grid;
+	grid-template-areas:
+		". north ."
+		"west . east"
+		". south .";
+	width: 200px;
+	height: 200px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	position: relative;
+	margin: 50px auto;
+	background: linear-gradient(to bottom, #000, #333);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	transition: .3s ease;
+	padding: .5rem;
+}
+
+.direction {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	font-weight: bold;
+	color: #fff;
+}
+
+.north {
+	grid-area: north;
+	animation: none; 
+	transition: .3 ease;
+}
+
+.title {
+	color: #fff;
+	margin-right : 3rem;
+}
+
+.compass-container:hover {
+	animation-play-state: paused;
+	transform: rotate(90deg) scale(1.1);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+
+	.north {
+		animation: spin 5s linear infinite;
+		color: #333;
+		background: #ffe0e0;
+		border-radius: 40px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	}
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.south {
+	grid-area: south;
+}
+
+.east {
+	grid-area: east;
+}
+
+.west {
+	grid-area: west;
+}
+
+/* Optional styling to center the compass on the page */
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background: #111;
+}
